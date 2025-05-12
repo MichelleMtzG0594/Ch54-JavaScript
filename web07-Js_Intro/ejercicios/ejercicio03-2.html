@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./myScript.js" defer></script>
+</head>
+<body>
+    <h1 id="title"> Web 07, ejercicio 03.2 </h1>
+    <p>Reusando el mismo script que en ejercicio 03</p>
+    <button onclick="cambiaColorBackground('red')">Change color(red)</button>
+    <button onclick="cambiaColorBackground('blue')">Change color(blue)</button>
+    <button onclick="cambiaColorBackground('#6495ED')">Change color(Corn blue)</button>
+
+    <!-- Aqui usamos una función para cambiar a color verde sin embargo no es recomendable usar una sola función para un solo evento ya que sería usar mucho código -->
+    <p id="green-paragraph" onclick="changeToGreenColor()"> Cambiar a color verde </p>
+
+    <!-- Podemos hacer que el código se reutilice para varios eventos y así simplificar código -->
+    <p id="red-paragraph" 
+    onclick="changeColor(document.getElementById('red-paragraph'), 'red ')"> Cambiar a color rojo
+    </p>
+    <!-- this nos ayuda a simplificar el código, ya que g}hace referencia a un elemento -->
+    <p id="yellow-paragraph" 
+    onclick="changeColor(this,'yellow')"> 
+    Cambiar a color amarillo</p>
+    <!-- Si usamos this, ya no se tiene que poner el id y es más claro el código -->
+    <p onclick="changeColor(this, 'blue')"> Cambiar a color azul </p>
+</body>
+</html>

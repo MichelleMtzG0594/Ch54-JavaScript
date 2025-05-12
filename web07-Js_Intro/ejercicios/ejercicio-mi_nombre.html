@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cual es tu nombre</title>
+    <script src=./script-mi_nombre.js defer ></script>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #d60486;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #680436;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="saludo"> "Hola nombre "</h1>
+    <button onclick="cambiarNombre()"> Cambia el nombre </button>
+</body>
+</html>
