@@ -41,6 +41,20 @@ const changeElementById = () =>{
 
 changeElementById();
 
+const cardNombre = () => {
+    const tarjetaNombre = document.getElementById("card-mi-nombre");
+    tarjetaNombre.innerHTML = `<div class="card" style="width: 18rem;">
+          <img src="./public/images/1000023526.jpg" class="card-img-top" alt="No puedo martha meme">
+          <div class="card-body">
+            <h5 class="card-title"> Michelle Martínez </h5>
+            <p class="card-text">Mucho texto
+            </p>
+            <a href="#" class="btn btn-primary">¡Ven, vamos, come on!</a>
+          </div>
+          </div>`
+}
+cardNombre();
+
 /**
  * Modificar elementos por su tag(etiqueta HTML)
  */
@@ -53,8 +67,15 @@ const changeElementsByTagName =  () => {
    }
 
 }
+//changeElementsByTagName();
 
-// changeElementsByTagName();
+/* Realizar una función que lea tods los botones de la pagina y muestre en consola el número total de botones */
+function cantidadBotones() {
+     const listaBotones = document.getElementsByTagName("button");
+    console.log("Boton:" , listaBotones.length);
+
+}
+cantidadBotones();
 
 /**
  * Acceder a un elemento usando el selector universar
