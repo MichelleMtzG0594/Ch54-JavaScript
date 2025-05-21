@@ -41,8 +41,74 @@
     else condición;   
 
 */
+ /*Crear un arrow function que reciba el valor de edad.
+ Si la edad es mayor o igual a 18, la función debe
+ retornar el mensaje "Eres mayor de edad".
+ En caso contrario, retornar el mensaje "Eres menor de edad".
+ - Realizar la versión de if-else sin usar el bloque de código {}
+*/
+ const mayorOMenor = edad => {
+    if (edad <= 18)  return "Eres menor de edad"; 
+    else return "Eres mayor de edad";
+ }
 
+ console.log(mayorOMenor(15));
+ console.log(mayorOMenor(28));
 
+/*
+ Crear un arrow function que reciba el valor de edad.
+ Si la edad es mayor o igual a 18 y menor o igual a 30
+                 ( evalur con 18 Y(&&) evaluar con 30        )
+ la función debe retornar el mensaje "Tu luchador es Místico".
+ Si es mayor o igual a 31 el mensaje "Tu luchador es el perro Aguayo".
+ Si es menor a 18 el mensaje "Tu luchador es Penta"
+*/
+
+const queLuchadorEres = edad => {
+    if (edad < 18) return "tu luchador es Penta";
+    else if (edad >= 18 && edad <= 30 ) return "tu luchador es Místico";
+    else return "tu luchador es el perro Aguayo"
+}
+
+console.log(queLuchadorEres(12));
+console.log(queLuchadorEres(29));
+console.log(queLuchadorEres(56));
+
+//Bloque de código
+{
+    let myVarLet = 30;
+    const myVarConst = 40;
+    var myVarVar = 50;
+    console.log(myVarLet,myVarConst,myVarVar)
+    {
+        let myVarLet = 100;
+        const myVarConst = 110;
+        var myVarVar = 120;
+        console.log(myVarLet,myVarConst,myVarVar)
+    }
+    console.log(myVarLet,myVarConst,myVarVar)
+}
+
+//----------- Ejercicio 1 ---------------
+let active = false
+if (active === true); {
+    console.log("Esta activo");
+ }
+ console.log("Fin del programa");
+
+ //----------- Ejercicio 2 ---------------
+active = false
+ if (active === true)
+    console.log("Esta activo");
+    console.log("Tiene autorización");
+
+ console.log("Fin del programa");
+
+//----------- Ejercicio 3 ---------------
+active = false
+ if (active === true);console.log("Esta activo");
+ //else console.log("No esta activo"); //Marca error unexpected token else
+ //console.log("Fin del programa")
 
 
 //--------------- Condicional Switch --------------------------
@@ -73,7 +139,34 @@
 
 */
 
+const evaluarNombre = (nombre) => {
+    let resultado;
+    switch (nombre) {
+        case "Lua":
+            resultado = "Es de Abril";
+            break;
+        case "Borrego": 
+        case "Besito":
+        case "Fijól":
+        case "Paco":
+            resultado = "Es de Yessica";
+            break;
+        case "Milo":
+            resultado = "Es de Carlos";
+            break;
+        case "Cuchara":
+            resultado = "Es de Ricardo";
+            break;
+        default:
+            resultado ="No se sabe de quién es"
+    }
+    return resultado;
+}
+console.log(evaluarNombre("Lua")); //Es de Abril
+console.log(evaluarNombre("Milo")); //Sin brakes daría "No se sabe de quién es"
+console.log( evaluarNombre("Borrego") ); // Es de Jessica
 
+const nombreMascota = "Lua"
 
 
 /**
@@ -88,8 +181,46 @@
  * @returns {string} mensaje
  */
 
+const velocidadVentilador = (velocidad) => {
+    if (velocidad === 0) return "Apagado"
+    else if (velocidad === 1) return "Baja"
+    else if (velocidad === 2) return "Media"
+    else if (velocidad === 3) return "Alta"
+    else return "Velocidad desconocida"
+}
 
+console.log(velocidadVentilador(0));
+console.log(velocidadVentilador(1));
+console.log(velocidadVentilador(2));
+console.log(velocidadVentilador(3));
+console.log(velocidadVentilador(4));
 
+const velocidadVentilador2 = (velocidad) => {
+    let resultado;
+    switch (velocidad) {
+        case 0:
+            resultado = "Apagado"
+            break;
+         case 1:
+            resultado = "Baja"
+            break;
+         case 2:
+            resultado = "Media"
+            break;
+         case 3:
+            resultado = "Alta"
+            break;
+        default:
+            resultado = "Velocidad desconocida"
+    }
+    return resultado;
+}
+
+console.log(velocidadVentilador2(0));
+console.log(velocidadVentilador2(1));
+console.log(velocidadVentilador2(2));
+console.log(velocidadVentilador2(3));
+console.log(velocidadVentilador2(4));
 
 // ------------------------ Operador ternario --------------------------
 /*
@@ -101,8 +232,83 @@
 
 */
 
+const verficarPagoDeTarjeta = ( estaPagado ) =>{
+    let msj;
+    if( estaPagado) {
+        msj = "La tarjta ha sido pagada";
+    } else {
+        msj = "La tarjeta no ha sido pagada";
+    }
+    return msj;
+}
+console.log( verficarPagoDeTarjeta( true ) ); //"La tarjta ha sido pagada"
+console.log( verficarPagoDeTarjeta( false ) ); //"La tarjeta no ha sido pagada"
 
+//Versión con operador ternario
+const verficarPagoDeTarjetaUsandoTernario = ( estaPagado ) =>{
+    return estaPagado ? "La tarjeta ha sido pagada" : "La tarjeta no ha sido pagada";
+}
+console.log( verficarPagoDeTarjetaUsandoTernario( true ) ); // "La tarjta ha sido pagada"
+console.log( verficarPagoDeTarjetaUsandoTernario( false ) ); // "La tarjeta no ha sido pagada"
 
+/*
+ Dado un número entero, imprimir:
+ "Negativo":  si el número es menor a 0.
+ "Cero":  si el número es  0.
+ "Positivo":  si el número es mayor a cero pero menor a 100.
+ "Grande": si el número es mayor o igual a 100.
+ - Realizar una función que reciba el número y retorne el mensaje.
+ - El retorno debe ser impreso en la consola.
+ - Realizar una versión if-else, switch y operador ternario.
+*/
+
+const numeroEntero = (entero) => {
+    if (entero < 0) return "Negativo";
+    else if (entero === 0) return "Cero";
+    else if (entero > 0 && entero < 100) return "Positivo";
+    else return "Grande";
+}
+
+console.log(numeroEntero(-15));
+console.log(numeroEntero(0));
+console.log(numeroEntero(99));
+console.log(numeroEntero(100));
+
+const numeroEntero2 = (numero) => {
+    let resultado;
+    switch (true) {
+        case (numero < 0):
+            resultado = "Negativo"
+            break;
+        case (numero === 0):
+            resultado = "Cero"
+            break;
+        case (numero > 0 && numero < 100):
+            resultado = "Positivo"
+            break;
+        default:
+            resultado = "Grande";
+    }
+
+    return resultado;
+}
+
+console.log(numeroEntero2(-15));
+console.log(numeroEntero2(0));
+console.log(numeroEntero2(99));
+console.log(numeroEntero2(100));
+
+function numeroEnteroTernario(numero) {
+    return numero < 0 ? "Negativo" :
+           numero === 0 ? "Cero" :
+           numero < 100 ? "Positivo" :
+           "Grande";
+}
+
+console.log(numeroEnteroTernario(-15));
+console.log(numeroEnteroTernario(0));
+console.log(numeroEnteroTernario(99));
+console.log(numeroEnteroTernario(100));
 
 /**
  *  Función que reciba la edad de una persona y devuelva el mensaje:
