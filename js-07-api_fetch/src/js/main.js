@@ -60,7 +60,7 @@ Características clave de los módulos JS:
     return a + b;
   }
 
-  También puedes exportar por defecto (solo uno por módulo):
+  También puedes exportar por defecto (solo uno por módulo (archivo)):
   export default function saludar(nombre) {
     return `¡Hola, ${nombre}!`;
   }
@@ -78,7 +78,13 @@ Características clave de los módulos JS:
 
 
 // importa las funciones del footer y header e invócalos para que se ejecuten
+import { insertMainHeader } from "../modules/header/header.js"; //import nombrado
+//import { insertMainFooter } from "../modules/footer/footer.js";
+import  footer  from "../modules/footer/footer.js"; //import por default solo se puede 1 por archivo
 
+insertMainHeader(document.getElementById("header"));//llamada del import nombrado
+//insertMainFooter(document.getElementById("footer"));
+footer(document.getElementById("footer")); //LLamada del Import por default
 
 
 /*
@@ -99,8 +105,46 @@ Características clave de los módulos JS:
     localStorage.clear() → Borra todo el almacenamiento.
 
 */
+/*
+ Crear en el HTML un input y un botón para guardar el valor en el localStorage.
+  
+  Al cargar la página, si hay un valor guardado, mostrarlo en el titulo H1 "Hola, {nombre}".
+  En caso contrario, mostrar "Hola, persona invitada".
+*/
 
 
+//Función que lee si hay un nombre guardado en local storage
+const leerNombreLocalStorage = () => {
+  const valorNombre = localStorage.getItem("nombre") || "persona invitada";
+  return valorNombre;
+}
+
+//Función para insertar en el H2 el nombre guardado
+const insertarNombreEnDOM = () => {
+  const refH1 = document.querySelector("#nombre-guardado"); //Este es otro método para obtener un elemento o clase
+  const nombre = leerNombreLocalStorage();
+  refH1.textContent = `Hola, ${nombre}`;
+
+}
+
+insertarNombreEnDOM();
+
+const guardarNombre = () => {
+  const refInput = document.querySelector("#nombre-input");
+  const inputValor = refInput.value;
+  inputValor && localStorage.setItem("nombre", inputValor);
+}
+
+/* No lo debemos hacer
+window.aLLamadaBotonGuardar = guardarNombre; */
+
+const guardar = document.getElementById("guardar-local");
+guardar.addEventListener("click", guardarNombre); //Se hace callback a la función guardarNombre(), no se le pone ()
+
+/* const refNameInput = document.getElementById("nombreInput"); //
+refNameInput.addEventListener( "keydown" , ( event )=>{
+  console.log(event.key);
+}); */
 
 
 /*
@@ -127,11 +171,11 @@ const tercerPaso = () => {
   console.log("03 - Fin de mi programa");
 };
 
-/*
+/* 
 primerPaso();
 segundoPaso(); // Este proceso demora tiempo
 tercerPaso();
-*/
+ */
 
 /*
  Programación asíncrona.
@@ -152,7 +196,53 @@ tercerPaso();
      setTimeout( ()=>{}  , tiempo_ms );
 
 */
+/*En funciones asíncronas se usa async y await o then y catch
+para que nuestra aplicación se peuda comunicar con el exterior como con un servidor que es parte del backend
+
+Async/await
+Es una sintaxis construida sobre promesas, diseñada para hacer que el código asincrónico se vea y se comporte un poco más como código sincrónico, lo que facilita su lectura y mantenimiento. La palabra clave async se utiliza para definir una función asincrónica, que implícitamente devuelve una promesa. La palabra clave await se utiliza dentro de una función asíncrona para pausar la ejecución hasta que se resuelva una promesa.
+ Ejemplo:
+
+ async function fetchData() {
+  try {
+    const response = await fetch('https://example.com/data');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    throw error;
+  }
+}
+
+fetchData()
+  .then(data => console.log('Data:', data))
+  .catch(error => console.error('Caught an error:', error));
+
+  
+async:
+Colocado antes de una declaración de función, significa que la función manejará operaciones asincrónicas y siempre devuelve una promesa.
+await:
+Utilizado dentro de una función async antes de una promesa, pausa la ejecución de la función hasta que se resuelva la promesa (se cumpla o se rechace).
+Manejo de errores:
+try...catch Los bloques se pueden usar para manejar errores en operaciones asincrónicas, de forma similar al código sincrónico.
+Legibilidad:
+Async/await hace que el código asincrónico sea más fácil de leer y comprender, especialmente cuando se trata de múltiples promesas encadenadas.
+Sin bloqueo:
+Mientras await pausa la ejecución de la función async, no bloquea el hilo principal, permitiendo que otras operaciones continúen.
+Cola de microtareas:
+Utiliza la cola de microtareas, similar a las promesas, lo que garantiza que awaitlas llamadas se manejen con prioridad sobre otras tareas.
+Compatibilidad:
+Es compatible con navegadores modernos y versiones de Node.js.
+*/
 
 
+const saludarTranscurridoXSeg = ( milisegundos ) => {
 
+  const saludar = (nombre) => alert (`Hola ${nombre}`);
+  //Sintaxis del setTimeout( fncCallback, tiempo_ms, argumentos_fnc )
+  setTimeout( saludar,milisegundos, "Neo" );
+}
 
+/* console.log("Antes de saludar");
+saludarTranscurridoXSeg(5000);
+console.log("Después de saludar"); */

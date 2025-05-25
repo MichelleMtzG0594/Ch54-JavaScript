@@ -19,7 +19,7 @@ const insertMainHeader = ( header )=>{
                 <a class="nav-link" href="/src/pages/about/about.html">Acerca de nosotros</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/src/pages/contact/contact.html">Contáctanos</a>
+                <a class="nav-link" href="/src/pages/contact/contact.html">Productos</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="/src/pages/register/register.html">Regístrate</a>
@@ -31,3 +31,4 @@ const insertMainHeader = ( header )=>{
 
 }
 
+export {insertMainHeader}; //export nombrado

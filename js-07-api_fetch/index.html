@@ -2,6 +2,12 @@
 <html lang="en">
 
 <head>
+  <script>
+    // console.log(aVariableTipoLet); //ReferenceError
+    // console.log(aVariableTipoVar); //undefined
+    function aMiFuncion(){}
+  </script>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>JavaScript Course</title>
@@ -12,9 +18,18 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <!-- Main custom style -->
   <link rel="stylesheet" href="./src/css/style.css" />
+  <script>
+    let aVariableTipoLet = "Soy variable tipo let";
+    var aVariableTipoVar = "Soy variable tipo var";
+  </script>
 </head>
 
 <body class="bg-dark text-light">
+
+  <script>
+    console.log(aVariableTipoLet);
+    console.log(aVariableTipoVar);
+  </script>
 
   <header id="header"></header>
 
@@ -26,8 +41,10 @@
       </figure>
       <!-- principal title -->
       <div class="col-lg-3 col-12 text-warning">
-        <h1>JS 07</h1>
+        <h1 >JS 07</h1>
+        <h2 id="nombre-guardado">Bienvenida</h2>
       </div>
+      
       <!-- sesion description -->
       <div class="col-lg-4 col-12">
         <h2>API FETCH</h2>
@@ -58,6 +75,11 @@
           <li>Usar las herramientas de desarrollo para verificar y supervisar la solicitud HTTP.</li>
 
         </ul>
+      </div>
+      <div>
+        Tu nombre: <input id="nombre-input">
+        <!-- <button id="guardar-local" onclick="aLLamadaBotonGuardar()">Guardar</button> -->
+        <button id="guardar-local">Guardar</button>
       </div>
     </section>
 

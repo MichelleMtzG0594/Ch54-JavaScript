@@ -9,3 +9,5 @@ const insertMainFooter = ( footer )=>{
 
 }
 
+export default insertMainFooter //export por default
+//export {insertMainFooter};    //export nombrado
