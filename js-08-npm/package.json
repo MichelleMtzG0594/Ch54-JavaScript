@@ -1,0 +1,21 @@
+{
+  "name": "sesion-js-o8-npm",
+  "version": "0.0.1",
+  "description": "uso de npm en una aplicacion web",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pruebita": "echo \"Soy de la Ch54\" && exit 1"
+  },
+  "keywords": [
+    "generation",
+    "js08",
+    "javascript",
+    "ch54"
+  ],
+  "author": "mich,mi apa, la chona",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.6"
+  }
+}
